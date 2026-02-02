@@ -1,0 +1,23 @@
+{
+  "name": "dehook",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun run scripts/build.ts --dev --watch",
+    "build": "bun run scripts/build.ts",
+    "format": "bun run biome check --write ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "latest",
+    "@types/chrome": "^0.0.287",
+    "playwright": "^1.58.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "sharp": "^0.34.5"
+  }
+}

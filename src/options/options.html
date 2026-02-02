@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="options.css" />
+    <title>Dehook Settings</title>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <h1>Dehook Settings</h1>
+        <div id="status"></div>
+      </header>
+
+      <section id="password-section">
+        <h2>Password Protection</h2>
+        <div id="password-status"></div>
+        <div id="password-form">
+          <input type="password" id="current-password" placeholder="Current password" />
+          <input type="password" id="new-password" placeholder="New password" />
+          <input type="password" id="confirm-password" placeholder="Confirm password" />
+          <button id="set-password-btn">Set Password</button>
+        </div>
+        <div id="unlock-form" class="hidden">
+          <input type="password" id="unlock-password" placeholder="Enter password to unlock" />
+          <button id="unlock-btn">Unlock Settings</button>
+        </div>
+      </section>
+
+      <section id="timer-section">
+        <h2>Auto-Revert Timer</h2>
+        <label>
+          <input type="checkbox" id="autoRevertEnabled" />
+          <span>Enable auto-revert to restrictive defaults</span>
+        </label>
+        <div id="timer-config">
+          <label>
+            <span>Revert after:</span>
+            <select id="autoRevertMinutes">
+              <option value="15">15 minutes</option>
+              <option value="30">30 minutes</option>
+              <option value="60">1 hour</option>
+              <option value="120">2 hours</option>
+              <option value="240">4 hours</option>
+              <option value="480">8 hours</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section id="hiding-section">
+        <h2>Element Hiding</h2>
+
+        <div class="option-group">
+          <h3>Home Page</h3>
+          <label>
+            <input type="checkbox" id="hideFeed" />
+            <span>Hide Home Feed</span>
+          </label>
+          <label class="sub-option">
+            <input type="checkbox" id="redirectToSubscriptions" />
+            <span>Redirect to Subscriptions</span>
+          </label>
+        </div>
+
+        <div class="option-group">
+          <h3>Video Sidebar</h3>
+          <label>
+            <input type="checkbox" id="hideSidebar" />
+            <span>Hide Entire Sidebar</span>
+          </label>
+          <label class="sub-option">
+            <input type="checkbox" id="hideRecommended" />
+            <span>Hide Recommended Videos</span>
+          </label>
+          <label class="sub-option">
+            <input type="checkbox" id="hideChat" />
+            <span>Hide Live Chat</span>
+          </label>
+          <label class="sub-option">
+            <input type="checkbox" id="hidePlaylists" />
+            <span>Hide Playlist</span>
+          </label>
+          <label class="sub-option">
+            <input type="checkbox" id="hideFundraiser" />
+            <span>Hide Fundraiser</span>
+          </label>
+        </div>
+
+        <div class="option-group">
+          <h3>Video Player</h3>
+          <label>
+            <input type="checkbox" id="hideEndScreen" />
+            <span>Hide End Screen Feed</span>
+          </label>
+          <label>
+            <input type="checkbox" id="hideEndCards" />
+            <span>Hide End Screen Cards</span>
+          </label>
+          <label>
+            <input type="checkbox" id="disableAutoplay" />
+            <span>Disable Autoplay</span>
+          </label>
+          <label>
+            <input type="checkbox" id="disableAnnotations" />
+            <span>Disable Annotations</span>
+          </label>
+        </div>
+
+        <div class="option-group">
+          <h3>Shorts</h3>
+          <label>
+            <input type="checkbox" id="hideShorts" />
+            <span>Hide Shorts</span>
+          </label>
+        </div>
+
+        <div class="option-group">
+          <h3>Comments</h3>
+          <label>
+            <input type="checkbox" id="hideComments" />
+            <span>Hide Comments</span>
+          </label>
+          <label class="sub-option">
+            <input type="checkbox" id="hideProfilePhotos" />
+            <span>Hide Profile Photos</span>
+          </label>
+        </div>
+
+        <div class="option-group">
+          <h3>Other Content</h3>
+          <label>
+            <input type="checkbox" id="hideMixes" />
+            <span>Hide Mixes</span>
+          </label>
+          <label>
+            <input type="checkbox" id="hideMerch" />
+            <span>Hide Merch, Tickets, Offers</span>
+          </label>
+        </div>
+
+        <div class="option-group">
+          <h3>Video Info</h3>
+          <label>
+            <input type="checkbox" id="hideVideoInfo" />
+            <span>Hide All Video Info</span>
+          </label>
+          <label class="sub-option">
+            <input type="checkbox" id="hideButtonsBar" />
+            <span>Hide Buttons Bar</span>
+          </label>
+          <label class="sub-option">
+            <input type="checkbox" id="hideChannel" />
+            <span>Hide Channel</span>
+          </label>
+          <label class="sub-option">
+            <input type="checkbox" id="hideDescription" />
+            <span>Hide Description</span>
+          </label>
+        </div>
+
+        <div class="option-group">
+          <h3>Header</h3>
+          <label>
+            <input type="checkbox" id="hideHeader" />
+            <span>Hide Top Header</span>
+          </label>
+          <label class="sub-option">
+            <input type="checkbox" id="hideNotifications" />
+            <span>Hide Notifications</span>
+          </label>
+        </div>
+
+        <div class="option-group">
+          <h3>Navigation</h3>
+          <label>
+            <input type="checkbox" id="hideInaptSearch" />
+            <span>Hide Inapt Search Results</span>
+          </label>
+          <label>
+            <input type="checkbox" id="hideTrending" />
+            <span>Hide Explore, Trending</span>
+          </label>
+          <label>
+            <input type="checkbox" id="hideMoreYouTube" />
+            <span>Hide More from YouTube</span>
+          </label>
+          <label>
+            <input type="checkbox" id="hideSubscriptions" />
+            <span>Hide Subscriptions</span>
+          </label>
+        </div>
+      </section>
+
+      <section id="actions-section">
+        <button id="reset-btn" class="danger">Reset to Restrictive Defaults</button>
+      </section>
+    </div>
+    <script src="options.js" type="module"></script>
+  </body>
+</html>

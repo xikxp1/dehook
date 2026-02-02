@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="popup.css" />
+    <title>Dehook</title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <h1>Dehook</h1>
+        <label class="switch">
+          <input type="checkbox" id="enabled" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div id="lock-status"></div>
+
+      <div id="quick-toggles">
+        <label>
+          <input type="checkbox" id="hideFeed" />
+          <span>Hide Home Feed</span>
+        </label>
+        <label>
+          <input type="checkbox" id="hideShorts" />
+          <span>Hide Shorts</span>
+        </label>
+        <label>
+          <input type="checkbox" id="hideSidebar" />
+          <span>Hide Sidebar</span>
+        </label>
+        <label>
+          <input type="checkbox" id="hideComments" />
+          <span>Hide Comments</span>
+        </label>
+        <label>
+          <input type="checkbox" id="disableAutoplay" />
+          <span>Disable Autoplay</span>
+        </label>
+      </div>
+
+      <div id="password-section" class="hidden">
+        <input type="password" id="password" placeholder="Enter password" />
+        <button id="unlock-btn">Unlock</button>
+      </div>
+
+      <div id="footer">
+        <a id="options-link">All Settings</a>
+      </div>
+    </div>
+    <script src="popup.js" type="module"></script>
+  </body>
+</html>
