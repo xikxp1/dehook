@@ -100,5 +100,6 @@ Tested with Playwright + extension loaded:
 ### New Features (Feb 2026)
 - **Hide Most Relevant**: Added setting to hide "Most relevant" section on subscriptions page
   - Targets `ytd-horizontal-card-list-renderer[card-list-style="HORIZONTAL_CARD_LIST_STYLE_TYPE_CHANNEL_SHELF"]`
+  - Also targets new `ytd-rich-section-renderer:has(ytd-rich-shelf-renderer:not([is-shorts]))` format
   - Scoped to subscriptions page only using `ytd-browse[page-subtype="subscriptions"]`
   - Default: enabled (hidden)

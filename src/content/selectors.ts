@@ -63,6 +63,7 @@ export const SELECTORS = {
   ],
   mostRelevant: [
     'ytd-horizontal-card-list-renderer[card-list-style="HORIZONTAL_CARD_LIST_STYLE_TYPE_CHANNEL_SHELF"]',
+    'ytd-browse[page-subtype="subscriptions"] ytd-rich-section-renderer:has(ytd-rich-shelf-renderer:not([is-shorts]))',
   ],
   autoplay: [".ytp-autonav-toggle-button"],
 } as const;
