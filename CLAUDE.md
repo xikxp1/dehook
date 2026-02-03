@@ -40,7 +40,6 @@ Use code simplifier skill after initial implementation.
 
 1. Load unpacked extension from `dist/` in Chrome
 2. Use Chrome DevTools to inspect YouTube pages
-3. Reference @docs/settings.html for Unhook feature parity
 
 ## Key Features
 
