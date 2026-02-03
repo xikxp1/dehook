@@ -29,6 +29,7 @@ function updateUI() {
   const enabledCheckbox = $<HTMLInputElement>("enabled");
   enabledCheckbox.checked = settings.enabled;
 
+  const enabledSwitch = enabledCheckbox.closest(".switch") as HTMLElement;
   const lockStatus = $<HTMLDivElement>("lock-status");
   const passwordSection = $<HTMLDivElement>("password-section");
   const quickToggles = $<HTMLDivElement>("quick-toggles");
@@ -39,6 +40,7 @@ function updateUI() {
       lockStatus.className = "locked";
       passwordSection.classList.remove("hidden");
       quickToggles.classList.add("disabled");
+      enabledSwitch.classList.add("disabled");
     } else {
       const remaining = getRemainingTime();
       lockStatus.textContent = remaining
@@ -47,12 +49,14 @@ function updateUI() {
       lockStatus.className = "unlocked";
       passwordSection.classList.add("hidden");
       quickToggles.classList.remove("disabled");
+      enabledSwitch.classList.remove("disabled");
     }
   } else {
     lockStatus.textContent = "No password set";
     lockStatus.className = "";
     passwordSection.classList.add("hidden");
     quickToggles.classList.remove("disabled");
+    enabledSwitch.classList.remove("disabled");
   }
 
   for (const key of QUICK_TOGGLES) {
@@ -101,6 +105,10 @@ async function handleToggle(key: keyof HidingSettings, checked: boolean) {
 }
 
 async function handleEnabled(checked: boolean) {
+  if (settings.protection.isLocked && settings.protection.passwordHash) {
+    return;
+  }
+
   const response = await sendMessage({
     type: "UPDATE_SETTINGS",
     payload: { enabled: checked },
