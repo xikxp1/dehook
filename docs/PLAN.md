@@ -96,3 +96,9 @@ Tested with Playwright + extension loaded:
   - YouTube uses client-side navigation (SPA), so clicking the logo doesn't trigger page reload
   - Added listener for YouTube's custom `yt-navigate-finish` event to detect navigation
   - Redirect to subscriptions now works when clicking YouTube logo or Home button
+
+### New Features (Feb 2026)
+- **Hide Most Relevant**: Added setting to hide "Most relevant" section on subscriptions page
+  - Targets `ytd-horizontal-card-list-renderer[card-list-style="HORIZONTAL_CARD_LIST_STYLE_TYPE_CHANNEL_SHELF"]`
+  - Scoped to subscriptions page only using `ytd-browse[page-subtype="subscriptions"]`
+  - Default: enabled (hidden)

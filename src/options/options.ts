@@ -30,6 +30,7 @@ const HIDING_KEYS: (keyof HidingSettings)[] = [
   "hideTrending",
   "hideMoreYouTube",
   "hideSubscriptions",
+  "hideMostRelevant",
   "disableAutoplay",
   "disableAnnotations",
 ];

@@ -28,6 +28,7 @@ export const DEFAULT_HIDING_SETTINGS: HidingSettings = {
   hideTrending: true,
   hideMoreYouTube: true,
   hideSubscriptions: false,
+  hideMostRelevant: true,
   disableAutoplay: true,
   disableAnnotations: true,
 };

@@ -23,6 +23,7 @@ export interface HidingSettings {
   hideTrending: boolean;
   hideMoreYouTube: boolean;
   hideSubscriptions: boolean;
+  hideMostRelevant: boolean;
   disableAutoplay: boolean;
   disableAnnotations: boolean;
 }

@@ -27,6 +27,7 @@ const SETTING_TO_SELECTOR: Record<keyof HidingSettings, SelectorKey | null> = {
   hideTrending: "trending",
   hideMoreYouTube: "moreYouTube",
   hideSubscriptions: "subscriptions",
+  hideMostRelevant: "mostRelevant",
   disableAutoplay: "autoplay",
   disableAnnotations: null,
 };

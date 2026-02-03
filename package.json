@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "bun run scripts/build.ts --dev --watch",
     "build": "bun run scripts/build.ts",
-    "format": "bun run biome check --write ."
+    "format": "tsc --noEmit && bun run biome check --write ."
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
