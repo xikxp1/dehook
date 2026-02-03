@@ -62,7 +62,7 @@ export const SELECTORS = {
     'ytd-mini-guide-entry-renderer a[href*="/feed/subscriptions"]',
   ],
   mostRelevant: [
-    'ytd-browse[page-subtype="subscriptions"] ytd-horizontal-card-list-renderer[card-list-style="HORIZONTAL_CARD_LIST_STYLE_TYPE_CHANNEL_SHELF"]',
+    'ytd-horizontal-card-list-renderer[card-list-style="HORIZONTAL_CARD_LIST_STYLE_TYPE_CHANNEL_SHELF"]',
   ],
   autoplay: [".ytp-autonav-toggle-button"],
 } as const;
