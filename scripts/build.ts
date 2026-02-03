@@ -84,7 +84,7 @@ async function build() {
   // Write manifest
   const manifest = {
     manifest_version: 3,
-    name: "Dehook",
+    name: "DeHook",
     version: "1.0.0",
     description: "Limit YouTube usage with password-protected settings",
 

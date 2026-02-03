@@ -1,4 +1,4 @@
-# Dehook
+# DeHook
 
 Chrome extension to limit YouTube usage with password-protected settings that auto-revert.
 

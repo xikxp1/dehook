@@ -1,4 +1,4 @@
-# Dehook
+# DeHook
 
 A Chrome extension to limit YouTube usage by hiding distracting elements. Features password-protected settings that auto-revert to restrictive defaults after a configurable time.
 

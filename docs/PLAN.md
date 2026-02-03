@@ -1,4 +1,4 @@
-# Dehook Implementation Plan
+# DeHook Implementation Plan
 
 Chrome extension to limit YouTube usage with password-protected settings and auto-revert timer.
 
@@ -11,7 +11,7 @@ Chrome extension to limit YouTube usage with password-protected settings and aut
 - [x] Phase 5: Password Protection
 - [x] Phase 6: Auto-Revert Timer
 - [x] Phase 7: Options Page
-- [ ] Phase 8: Polish (testing, icons)
+- [x] Phase 8: Polish (testing, icons)
 
 ## Project Structure
 
