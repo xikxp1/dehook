@@ -40,7 +40,17 @@ checkAlarmState();
 
 async function getSettings(): Promise<AppSettings> {
   const result = await chrome.storage.local.get(STORAGE_KEY);
-  return (result[STORAGE_KEY] as AppSettings) || DEFAULT_APP_SETTINGS;
+  const stored = result[STORAGE_KEY] as AppSettings | undefined;
+  if (!stored) {
+    return DEFAULT_APP_SETTINGS;
+  }
+  // Merge with defaults to pick up new settings
+  return {
+    ...DEFAULT_APP_SETTINGS,
+    ...stored,
+    hiding: { ...DEFAULT_HIDING_SETTINGS, ...stored.hiding },
+    protection: { ...DEFAULT_APP_SETTINGS.protection, ...stored.protection },
+  };
 }
 
 async function saveSettings(settings: AppSettings): Promise<void> {

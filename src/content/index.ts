@@ -105,8 +105,19 @@ function handleAutoplay(settings: AppSettings) {
 
 async function init() {
   const result = await chrome.storage.local.get(STORAGE_KEY);
-  currentSettings =
-    (result[STORAGE_KEY] as AppSettings) || DEFAULT_APP_SETTINGS;
+  const stored = result[STORAGE_KEY] as AppSettings | undefined;
+  // Merge with defaults to pick up new settings
+  currentSettings = stored
+    ? {
+        ...DEFAULT_APP_SETTINGS,
+        ...stored,
+        hiding: { ...DEFAULT_APP_SETTINGS.hiding, ...stored.hiding },
+        protection: {
+          ...DEFAULT_APP_SETTINGS.protection,
+          ...stored.protection,
+        },
+      }
+    : DEFAULT_APP_SETTINGS;
 
   applyStyles(currentSettings);
   handleRedirect(currentSettings);
