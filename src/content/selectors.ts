@@ -20,6 +20,7 @@ export const SELECTORS = {
     "ytd-reel-shelf-renderer",
     "ytd-rich-shelf-renderer[is-shorts]",
     "ytd-shorts",
+    "ytd-search grid-shelf-view-model:has(ytm-shorts-lockup-view-model)",
     'ytd-mini-guide-entry-renderer a[title="Shorts"]',
     'ytd-guide-entry-renderer a[title="Shorts"]',
   ],

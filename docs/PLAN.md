@@ -96,6 +96,10 @@ Tested with Playwright + extension loaded:
   - YouTube uses client-side navigation (SPA), so clicking the logo doesn't trigger page reload
   - Added listener for YouTube's custom `yt-navigate-finish` event to detect navigation
   - Redirect to subscriptions now works when clicking YouTube logo or Home button
+- **Search results Shorts fix**: Added a selector for YouTube's newer search-page Shorts shelf
+  - Search results can now render Shorts inside `grid-shelf-view-model` with `ytm-shorts-lockup-view-model`
+  - Added `ytd-search grid-shelf-view-model:has(ytm-shorts-lockup-view-model)` to the Shorts selectors
+  - Keeps the scope limited to search results so subscriptions and regular video rows stay visible
 
 ### New Features (Feb 2026)
 - **Hide Most Relevant**: Added setting to hide "Most relevant" section on subscriptions page
