@@ -17,7 +17,9 @@ Chrome extension to limit YouTube usage with password-protected settings and aut
 
 ```
 dehook/
-├── dist/                    # Build output (load in Chrome)
+├── dist/                    # Chrome build output
+├── dist-firefox/            # Firefox build output
+├── dehook-firefox.zip       # Firefox packaged extension
 ├── src/
 │   ├── background/index.ts  # Service worker
 │   ├── content/
@@ -36,12 +38,22 @@ dehook/
 
 ## Commands
 
-- `bun run build` - Production build to dist/
+- `bun run build` - Production build to dist/ (Chrome)
+- `bun run build:firefox` - Production build to dist-firefox/ + dehook-firefox.zip
 - `bun run dev` - Development build with watch
 - `bun run format` - Lint and format
 
+## Firefox Support
+
+The extension builds for Firefox MV3 with a compatible manifest:
+- Uses `background.scripts` instead of `service_worker`
+- Merges `host_permissions` into `permissions`
+- Adds `browser_specific_settings.gecko.id`
+- Outputs `dehook-firefox.zip` ready for submission to addons.mozilla.org or sideloading
+
 ## Testing Checklist
 
+### Chrome
 1. Load unpacked extension from `dist/` in Chrome
 2. Navigate to youtube.com
 3. Verify elements are hidden based on settings
@@ -51,6 +63,11 @@ dehook/
 7. Test unlock with correct/incorrect password
 8. Set short timer (1 min) and verify auto-revert
 9. Test all hiding options work correctly
+
+### Firefox
+1. Build with `bun run build:firefox`
+2. Load `dist-firefox/` as a temporary extension in `about:debugging`
+3. Repeat steps 2-9 from Chrome checklist
 
 ## Remaining Work
 

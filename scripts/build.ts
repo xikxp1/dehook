@@ -1,10 +1,14 @@
 import { $ } from "bun";
 
 const isDev = process.argv.includes("--dev");
-const outdir = "./dist";
+const isFirefox = process.argv.includes("--firefox");
+const outdir = isFirefox ? "./dist-firefox" : "./dist";
+const targetName = isFirefox ? "Firefox" : "Chrome";
 
 async function build() {
-  console.log(`Building in ${isDev ? "development" : "production"} mode...`);
+  console.log(
+    `Building for ${targetName} in ${isDev ? "development" : "production"} mode...`,
+  );
 
   // Clean and create dist
   await $`rm -rf ${outdir}`;
@@ -82,7 +86,7 @@ async function build() {
   }
 
   // Write manifest
-  const manifest = {
+  const baseManifest = {
     manifest_version: 3,
     name: "DeHook",
     version: "1.0.0",
@@ -126,7 +130,40 @@ async function build() {
     },
   };
 
-  await Bun.write(`${outdir}/manifest.json`, JSON.stringify(manifest, null, 2));
+  const manifest = isFirefox
+    ? {
+        ...baseManifest,
+        permissions: [
+          ...baseManifest.permissions,
+          ...baseManifest.host_permissions,
+        ],
+        host_permissions: undefined,
+        background: {
+          scripts: ["background.js"],
+          type: "module" as const,
+        },
+        browser_specific_settings: {
+          gecko: {
+            id: "dehook@dehook-extension.local",
+          },
+        },
+      }
+    : baseManifest;
+
+  // Remove undefined keys for clean JSON
+  const cleanManifest = JSON.parse(JSON.stringify(manifest));
+
+  await Bun.write(
+    `${outdir}/manifest.json`,
+    JSON.stringify(cleanManifest, null, 2),
+  );
+
+  // Package for Firefox
+  if (isFirefox && !isDev) {
+    const zipName = "dehook-firefox.zip";
+    await $`cd ${outdir} && zip -r ../${zipName} .`;
+    console.log(`Packaged: ${zipName}`);
+  }
 
   console.log("Build complete!");
 }

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "bun run scripts/build.ts --dev --watch",
     "build": "bun run scripts/build.ts",
+    "build:firefox": "bun run scripts/build.ts --firefox",
     "format": "tsc --noEmit && bun run biome check --write ."
   },
   "devDependencies": {
