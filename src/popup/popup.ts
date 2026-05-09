@@ -13,6 +13,8 @@ const QUICK_TOGGLES: (keyof HidingSettings)[] = [
   "disableAutoplay",
 ];
 
+const OPTIONS_PAGE = "options/options.html";
+
 async function sendMessage(message: Message) {
   return chrome.runtime.sendMessage(message);
 }
@@ -142,6 +144,18 @@ async function handleUnlock() {
   }
 }
 
+async function openOptions(event: MouseEvent) {
+  event.preventDefault();
+
+  try {
+    await chrome.tabs.create({
+      url: chrome.runtime.getURL(OPTIONS_PAGE),
+    });
+  } catch {
+    await chrome.runtime.openOptionsPage();
+  }
+}
+
 function init() {
   loadSettings();
 
@@ -161,9 +175,7 @@ function init() {
     if (e.key === "Enter") handleUnlock();
   });
 
-  $<HTMLAnchorElement>("options-link").addEventListener("click", () => {
-    chrome.runtime.openOptionsPage();
-  });
+  $<HTMLAnchorElement>("options-link").addEventListener("click", openOptions);
 
   setInterval(() => {
     if (!settings.protection.isLocked) {

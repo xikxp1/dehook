@@ -117,6 +117,9 @@ Tested with Playwright + extension loaded:
   - Search results can now render Shorts inside `grid-shelf-view-model` with `ytm-shorts-lockup-view-model`
   - Added `ytd-search grid-shelf-view-model:has(ytm-shorts-lockup-view-model)` to the Shorts selectors
   - Keeps the scope limited to search results so subscriptions and regular video rows stay visible
+- **Popup All Settings link fix**: Made the popup's "All Settings" control open reliably
+  - Added a real options page URL fallback to the popup link
+  - Open the bundled `options/options.html` page in a tab, with `chrome.runtime.openOptionsPage()` as a fallback
 
 ### New Features (Feb 2026)
 - **Hide Most Relevant**: Added setting to hide "Most relevant" section on subscriptions page
