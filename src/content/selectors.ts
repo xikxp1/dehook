@@ -8,6 +8,9 @@ export const SELECTORS = {
   sidebar: [
     "#secondary",
     "#related",
+    "#fixed-side-menu",
+    "ytd-watch-flexy[show-fixed-side-menu] #columns::after",
+    "ytd-watch-flexy[show-fixed-side-menu] #secondary::after",
     "ytd-watch-next-secondary-results-renderer",
   ],
   recommended: ["ytd-compact-video-renderer", "ytd-compact-radio-renderer"],

@@ -121,6 +121,12 @@ Tested with Playwright + extension loaded:
   - Added a real options page URL fallback to the popup link
   - Open the bundled `options/options.html` page in a tab, with `chrome.runtime.openOptionsPage()` as a fallback
 
+### Bug Fixes (Jul 2026)
+- **New watch-page side rail**: Added YouTube's `#fixed-side-menu` to the Hide Sidebar selectors
+  - Hides the new fixed Description and Comments rail introduced by the `enable_web_side_rail` experiment
+  - Also removes the rail's nested hide-arrow button without relying on its implementation-specific class
+  - Hides the `#columns::after` and `#secondary::after` pseudo-elements that reserve the rail's 64px horizontal space
+
 ### New Features (Feb 2026)
 - **Hide Most Relevant**: Added setting to hide "Most relevant" section on subscriptions page
   - Targets `ytd-horizontal-card-list-renderer[card-list-style="HORIZONTAL_CARD_LIST_STYLE_TYPE_CHANNEL_SHELF"]`
